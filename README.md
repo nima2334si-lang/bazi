@@ -1,18 +1,22 @@
 # SECRET SOCIETY Telegram Bot
 
-## Requirements
-- Python 3.10+
-- Dependencies are listed in `requirements.txt`.
-
 ## Environment variables
-Set these in your hosting provider's environment settings:
 - `BOT_TOKEN`: Telegram bot token
-- `ADMIN_ID`: your numeric Telegram user ID
+- `ADMIN_ID`: numeric Telegram user ID of the owner/admin
 
 ## Start command
 `python secret_society_bot.py`
 
-## Storage
-On FadeHost, the SQLite database and generated mission images are stored under `/data` so they survive redeploys and restarts. Locally, they are stored beside the script.
+## Required channel membership
+The bot checks membership in `@dsgjnjjyfg`. Add the bot to that channel as an administrator (no posting permissions are needed) so Telegram allows it to check member status. Users must join and press the membership verification button before using the bot.
 
-Do not commit bot tokens, `.env` files, or database files to GitHub.
+## Button colors
+Telegram inline buttons support preset styles only: `primary` (blue), `success` (green), and `danger` (red). Each configurable menu button has its own saved style.
+
+## Referral reports
+The admin panel includes a referral report showing inviter/invitee details and top inviters. Referral credit is applied after the invited user passes the channel membership check.
+
+## Persistent storage
+When `/data` exists, SQLite and mission images are stored there; otherwise they are stored beside the script.
+
+Never commit your bot token or database to GitHub.
